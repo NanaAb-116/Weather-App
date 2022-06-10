@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #34252f;
+  color: #dadecf;
+}
+
+form,
+#weather {
+  display: block;
+  width: 100%;
+  max-width: 25rem;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+#search {
+  display: block;
+  width: 100%;
+  background: transparent;
+  color: #dadecf;
+  border: 0;
+  border-bottom: 2px solid #dadecf;
+  outline: 0;
+  font-size: 1.2rem;
+  padding: 0.25rem 0;
+}
+#search:focus {
+  border-color: #ff521f;
+}
+ul {
+  list-style: none;
+  text-align: left;
+}
+ul li {
+  background-color: #333;
+  margin-top: 2px;
+  padding: 0.75rem;
+  cursor: pointer;
+}
+ul li span {
+  color: #dadecf75;
+}
+
+#degrees {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+#city {
+  color: #519872;
+  margin-bottom: 0.8rem;
+}
+#change {
+  border: 2px solid #888;
+  background-color: transparent;
+  color: #dadecf;
+  padding: 0.25rem 1rem;
+  border-radius: 1.25rem;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.info h3 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.value {
+  font-size: 2rem;
+}
+.value span {
+  color: #dadecf75;
+  font-size: 1rem;
+}
