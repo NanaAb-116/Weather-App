@@ -21,7 +21,7 @@ async function search() {
   ul.innerHTML = '';
   for (let i = 0; i < data.length; i++) {
     const { name, lat, lon, country } = data[i];
-    ul.innerHTML += `<li data-lat="${lat}"  data-lon="${lon}" data-name="${name}">${name} <span>${country}</span></li>`;
+    ul.innerHTML += `<li class="city-list" data-lat="${lat}"  data-lon="${lon}" data-name="${name}">${name} <span>${country}</span></li>`;
   }
 }
 
@@ -56,7 +56,11 @@ searchField.addEventListener('keyup', debouncedSearch);
 
 document.body.addEventListener('click', function (e) {
   const li = e.target;
+  //   const li = document.querySelector('.city-list');
   const { lat, lon, name } = li.dataset;
+  localStorage.setItem('lat', lat);
+  localStorage.setItem('lon', lon);
+  localStorage.setItem('name', name);
   if (!lat) {
     return;
   }
@@ -66,6 +70,15 @@ document.body.addEventListener('click', function (e) {
 changeBtn.addEventListener('click', () => {
   form.style.display = 'block';
   weather.style.display = 'none';
-  searchField.value = '';
-  ul.innerHTML = '';
+  //   searchField.value = '';
+  //   ul.innerHTML = '';
 });
+
+document.body.onload = () => {
+  if (localStorage.getItem('lat')) {
+    const lat = localStorage.getItem('lat');
+    const lon = localStorage.getItem('lon');
+    const name = localStorage.getItem('name');
+    showWeather(lat, lon, name);
+  }
+};
